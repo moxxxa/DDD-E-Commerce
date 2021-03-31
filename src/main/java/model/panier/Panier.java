@@ -3,12 +3,15 @@ package model.panier;
 import model.produit.Produit;
 import model.user.User;
 
+import java.security.PublicKey;
 import java.util.List;
 
-public class Panier implements Paniers {
+public class Panier {
     private List<Produit> produitList;
     private User user;
 
+    public Panier(){
+    }
 
     public Panier(List<Produit> produitList) {
         this.produitList = produitList;

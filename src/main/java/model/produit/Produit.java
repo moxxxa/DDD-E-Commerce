@@ -7,6 +7,10 @@ public class Produit {
     private String description;
     private double price;
 
+    public Produit(){
+
+    }
+
     public Produit(String name, String descriptionn, double price){
 
     }
