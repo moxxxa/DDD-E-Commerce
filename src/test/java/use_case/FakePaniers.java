@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FakePaniers implements Paniers {
 
@@ -38,9 +41,9 @@ public class FakePaniers implements Paniers {
         panierMouna.setUser(mouna);
 
         // create product
-        Produit nike = new Produit();
-        Produit adidas = new Produit();
-        Produit puma = new Produit();
+        Produit nike = new Produit("Nike");
+        Produit adidas = new Produit("Adidas");
+        Produit puma = new Produit("Puma");
         // add product to basket
         mounaProduits.add(nike);
         mounaProduits.add(adidas);
@@ -82,6 +85,17 @@ public class FakePaniers implements Paniers {
 
     }
 
+    public void testCountProduit() {
+        Panier panier1 = findById("1");
+        assertEquals(panier1.getProduitList().stream().filter(produit->produit.getName().equals("Nike")).count(), 1);
+        assertEquals(panier1.getProduitList().stream().filter(produit->produit.getName().equals("qsdqsd")).count(), 0);
+    }
+
+    public void testUser() {
+        Panier panier1 = findById("1");
+        assertEquals(panier1.getProduitList().stream().filter(user->user.getName().equals("Mouna")).count(), panier1.getProduitList().size());
+        assertEquals(panier1.getProduitList().stream().filter(user->user.getName().equals("sdfsdfdsf")).count(), 0);
+    }
 
     @Override
     public Panier findById(String idPanier) {
