@@ -1,8 +1,11 @@
 package model.livraison;
 
+import model.produit.Produit;
 import model.user.User;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Livraison {
     private User user;
@@ -10,6 +13,11 @@ public class Livraison {
     private Date dateEnvoie;
     private boolean isReceived;
     private LivraisonType livraisonType;
+    private List<Produit> produits;
+
+
+    public Livraison() {
+    }
 
     public Livraison(User user, Date dateLivraison, Date dateEnvoie, boolean isReceived, LivraisonType livraisonType) {
         this.user = user;
@@ -57,5 +65,17 @@ public class Livraison {
 
     public void setLivraisonType(LivraisonType livraisonType) {
         this.livraisonType = livraisonType;
+    }
+
+    public List<Produit> getProduits() {
+        return produits;
+    }
+
+    public void setProduits(List<Produit> produits) {
+        if (produits == null) {
+            produits = new ArrayList<Produit>();
+        } else {
+            this.produits = produits;
+        }
     }
 }

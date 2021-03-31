@@ -5,6 +5,7 @@ import model.panier.Paniers;
 import model.produit.Produit;
 import model.user.User;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -20,7 +21,14 @@ public class FakePaniers implements Paniers {
         paniers = new HashMap<>();
 
         //creat user
-        User mouna = new User();
+        User mouna = new User(
+                "1",
+                "Mouna",
+                "Hichri",
+                new Date(10, 10, 1997),
+                "mouna@gmail.com",
+                "adresse"
+        );
 
         // creat basket
         Panier panierMouna = new Panier();
@@ -45,7 +53,14 @@ public class FakePaniers implements Paniers {
         paniers.put("le panier de mouna", panierMouna);
 
         //creat user
-        User lionel = new User();
+        User lionel = new User(
+                "1",
+                "Stan",
+                "Durand",
+                new Date(10, 10, 1997),
+                "stan@gmail.com",
+                "adresse"
+        );
 
         // creat basket
         Panier panierlionel = new Panier();
@@ -65,12 +80,11 @@ public class FakePaniers implements Paniers {
 
         paniers.put("le panier de lionel", panierlionel);
 
-
     }
 
 
     @Override
     public Panier findById(String idPanier) {
-        return null;
+        return paniers.get(idPanier);
     }
 }
