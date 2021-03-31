@@ -4,6 +4,7 @@ import model.panier.Panier;
 import model.panier.Paniers;
 import model.produit.Produit;
 import model.user.User;
+import org.junit.jupiter.api.Test;
 
 import java.sql.Date;
 import java.util.ArrayList;
@@ -85,16 +86,29 @@ public class FakePaniers implements Paniers {
 
     }
 
-    public void testCountProduit() {
-        Panier panier1 = findById("1");
-        assertEquals(panier1.getProduitList().stream().filter(produit->produit.getName().equals("Nike")).count(), 1);
-        assertEquals(panier1.getProduitList().stream().filter(produit->produit.getName().equals("qsdqsd")).count(), 0);
+    @Test
+    void testAjouterProduitPanier(){
+        // Given
+        Panier panier = new Panier();
+        Produit produit = new Produit("Nike");
+        // When
+        panier.addProduit(produit);
+        // Then
+        assertEquals(panier.getProduitList().size(), 1);
+        assertEquals(panier.getProduitList().get(0).getName(), "Nike");
     }
 
-    public void testUser() {
-        Panier panier1 = findById("1");
-        assertEquals(panier1.getProduitList().stream().filter(user->user.getName().equals("Mouna")).count(), panier1.getProduitList().size());
-        assertEquals(panier1.getProduitList().stream().filter(user->user.getName().equals("sdfsdfdsf")).count(), 0);
+    @Test
+    void testSupprimerProduitPanier(){
+        // Given
+        Panier panier = new Panier();
+        Produit produit = new Produit("Nike");
+        panier.addProduit(produit);
+        // When
+
+        // Then
+        assertEquals(panier.getProduitList().size(), 1);
+        assertEquals(panier.getProduitList().get(0).getName(), "Nike");
     }
 
     @Override
