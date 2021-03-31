@@ -3,7 +3,6 @@ package use_case;
 import model.livraison.Livraison;
 import model.livraison.LivraisonType;
 import model.livraison.Livraisons;
-import model.panier.Panier;
 import model.produit.Produit;
 import model.user.User;
 
@@ -46,10 +45,6 @@ public class FakeLivraisons implements Livraisons {
         livraisonA.setLivraisonType(LivraisonType.EXPRESS);
         livraisonA.setProduits(produits);
         livraisons.put("Livrasion1", livraisonA);
-
-        test1();
-        test2();
-
     }
 
     public void test1() {
