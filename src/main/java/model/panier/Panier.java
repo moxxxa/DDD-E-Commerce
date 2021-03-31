@@ -10,11 +10,15 @@ public class Panier {
     private List<Produit> produitList;
     private User user;
 
-    public Panier(){
-    }
+    public Panier(){};
 
     public Panier(List<Produit> produitList) {
         this.produitList = produitList;
+    }
+
+    public Panier(List<Produit> produitList, User user) {
+        this.produitList = produitList;
+        this.user = user;
     }
 
     public List<Produit> getProduitList() {
@@ -34,11 +38,24 @@ public class Panier {
     }
 
     public void addProduit(Produit produit){
-
-        if(produit.isValidProduit()){
+        if(produit.produitEstValide()){
             return;
         }
-
         this.produitList.add(produit);
+    }
+
+    public void supprimerProduit(String id) {
+        if (null != id && produitList.size() > 0) {
+            //  supprimer le produit en question
+            int index = 0;
+            for (Produit p : produitList) {
+                if (p.getId() == id) {
+                    break;
+                }
+                index ++;
+            }
+            produitList.remove(index);
+            //  produitList.stream().filter(produit -> produit.getId().equals(id));
+        }
     }
 }

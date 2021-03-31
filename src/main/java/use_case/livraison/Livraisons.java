@@ -1,4 +1,6 @@
-package model.livraison;
+package use_case.livraison;
+
+import model.livraison.Livraison;
 
 public interface Livraisons {
 

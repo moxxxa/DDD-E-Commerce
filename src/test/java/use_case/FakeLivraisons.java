@@ -2,7 +2,7 @@ package use_case;
 
 import model.livraison.Livraison;
 import model.livraison.LivraisonType;
-import model.livraison.Livraisons;
+import use_case.livraison.Livraisons;
 import model.produit.Produit;
 import model.user.User;
 
@@ -32,11 +32,13 @@ public class FakeLivraisons implements Livraisons {
         Livraison livraisonA = new Livraison();
         List<Produit> produits = new ArrayList<>();
         produits.add(new Produit(
+            "1",
             "produit 1",
             "description produit 1",
             10.00
         ));
         produits.add(new Produit(
+                "2",
                 "produit 2",
                 "description produit 2",
                 20.00

@@ -1,17 +1,15 @@
 package use_case;
 
 import model.panier.Panier;
-import model.panier.Paniers;
+import use_case.panier.Paniers;
 import model.produit.Produit;
 import model.user.User;
-import org.junit.jupiter.api.Test;
 
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -33,82 +31,22 @@ public class FakePaniers implements Paniers {
                 "mouna@gmail.com",
                 "adresse"
         );
-
         // creat basket
         Panier panierMouna = new Panier();
-
         List<Produit> mounaProduits = new ArrayList<>();
-
         panierMouna.setUser(mouna);
-
         // create product
-        Produit nike = new Produit("Nike");
-        Produit adidas = new Produit("Adidas");
-        Produit puma = new Produit("Puma");
+        Produit nike = new Produit("1", "Nike", "Nike description", 10);
+        Produit adidas = new Produit("2", "Adidas", "Adidas description", 10);
+        Produit puma = new Produit("3", "Puma", "Puma description", 10);
         // add product to basket
         mounaProduits.add(nike);
         mounaProduits.add(adidas);
-
-
+        mounaProduits.add(puma);
         // fil up basket
         panierMouna.setProduitList(mounaProduits);
-
-
-        paniers.put("le panier de mouna", panierMouna);
-
-        //creat user
-        User lionel = new User(
-                "1",
-                "Stan",
-                "Durand",
-                new Date(10, 10, 1997),
-                "stan@gmail.com",
-                "adresse"
-        );
-
-        // creat basket
-        Panier panierlionel = new Panier();
-
-        List<Produit> lionelProduits = new ArrayList<>();
-
-        panierlionel.setUser(lionel);
-
-        // add product to basket
-        lionelProduits.add(puma);
-        lionelProduits.add(adidas);
-
-
-        // fil up basket
-        panierlionel.setProduitList(lionelProduits);
-
-
-        paniers.put("le panier de lionel", panierlionel);
-
-    }
-
-    @Test
-    void testAjouterProduitPanier(){
-        // Given
-        Panier panier = new Panier();
-        Produit produit = new Produit("Nike");
-        // When
-        panier.addProduit(produit);
-        // Then
-        assertEquals(panier.getProduitList().size(), 1);
-        assertEquals(panier.getProduitList().get(0).getName(), "Nike");
-    }
-
-    @Test
-    void testSupprimerProduitPanier(){
-        // Given
-        Panier panier = new Panier();
-        Produit produit = new Produit("Nike");
-        panier.addProduit(produit);
-        // When
-
-        // Then
-        assertEquals(panier.getProduitList().size(), 1);
-        assertEquals(panier.getProduitList().get(0).getName(), "Nike");
+        paniers.put("panier_non_vide", panierMouna);
+        paniers.put("panier_vide", new Panier());
     }
 
     @Override

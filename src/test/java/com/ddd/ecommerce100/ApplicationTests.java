@@ -1,13 +1,12 @@
 package com.ddd.ecommerce100;
 
-import use_case.FakeLivraisons;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
+
+@SpringBootTest
 class ApplicationTests {
-
-	public static void main(String [] args) {
-		FakeLivraisons fakeLivraisons = new FakeLivraisons();
-		fakeLivraisons.test1();
-		fakeLivraisons.test2();
+	@Test
+	void contextLoads() {
 	}
-
 }
