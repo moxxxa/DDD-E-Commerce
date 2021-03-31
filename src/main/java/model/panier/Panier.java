@@ -4,6 +4,7 @@ import model.produit.Produit;
 import model.user.User;
 
 import java.security.PublicKey;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Panier {
@@ -38,10 +39,13 @@ public class Panier {
     }
 
     public void addProduit(Produit produit){
-        if(produit.produitEstValide()){
-            return;
+
+        if(produitList == null){
+            produitList= new ArrayList<Produit>();
+            this.produitList.add(produit);
         }
-        this.produitList.add(produit);
+
+
     }
 
     public void supprimerProduit(String id) {
@@ -49,12 +53,14 @@ public class Panier {
             //  supprimer le produit en question
             int index = 0;
             for (Produit p : produitList) {
-                if (p.getId() == id) {
+                if (p.getId().equals(id)) {
+                    System.out.println("index"+index);
+                    produitList.remove(index);
                     break;
                 }
                 index ++;
             }
-            produitList.remove(index);
+
             //  produitList.stream().filter(produit -> produit.getId().equals(id));
         }
     }

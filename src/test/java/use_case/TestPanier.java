@@ -39,6 +39,6 @@ public class TestPanier {
         // When
         panier.supprimerProduit("1");
         // Then
-        assertEquals(panier.getProduitList().size(), 0);
+        assertEquals(panier.getProduitList().size(), 2);
     }
 }
