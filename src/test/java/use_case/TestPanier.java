@@ -20,7 +20,7 @@ public class TestPanier {
     @Test
     void testAjouterProduitPanier() {
         // Given
-        Panier panier = paniers.findById("panier_vide");
+        Panier panier = paniers.trouverParId("panier_vide");
         Produit produit = new Produit("1", "Nike", "description nike", 10);
         int NbProduitsDansPanier = 0;
         // When
@@ -35,7 +35,7 @@ public class TestPanier {
     @Test
     void testSupprimerProduitPanier(){
         // Given
-        Panier panier = paniers.findById("panier_non_vide");
+        Panier panier = paniers.trouverParId("panier_non_vide");
         int NbProduitsDansPanier = 3;
         // When
         panier.supprimerProduit("1");
@@ -46,7 +46,7 @@ public class TestPanier {
     @Test
     void testSupprimerPanierVide() {
         //  Given
-        Panier panier = paniers.findById("panier_vide");
+        Panier panier = paniers.trouverParId("panier_vide");
         int NbProduitsDansPanier = 0;
         //  When
         panier.supprimerProduit("1");
@@ -57,7 +57,7 @@ public class TestPanier {
     @Test
     void testSupprimerProduitNexistePas() {
         //  Given
-        Panier panier = paniers.findById("panier_non_vide");
+        Panier panier = paniers.trouverParId("panier_non_vide");
         int NbProduitsDansPanier = 3;
         //  When
         panier.supprimerProduit("nexistepas");

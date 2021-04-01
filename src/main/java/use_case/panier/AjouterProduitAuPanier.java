@@ -16,8 +16,8 @@ public class AjouterProduitAuPanier {
     }
 
     public Panier ajouterProduit(String idPanier, String idProduit) {
-        Panier panier = paniers.findById(idPanier);
-        Produit produit = produits.findyById(idProduit);
+        Panier panier = paniers.trouverParId(idPanier);
+        Produit produit = produits.trouverParId(idProduit);
 
         if (produit.leStockEstSuperieurAZero()) {
             produit.diminuerStockDeUn();
