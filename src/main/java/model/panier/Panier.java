@@ -37,7 +37,7 @@ public class Panier {
         this.user = user;
     }
 
-    public void addProduit(Produit produit){
+    public void ajouterProduit(Produit produit){
         if(produitList == null){
             produitList= new ArrayList<Produit>();
         }

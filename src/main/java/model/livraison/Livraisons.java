@@ -1,4 +1,4 @@
-package use_case.livraison;
+package model.livraison;
 
 import model.livraison.Livraison;
 

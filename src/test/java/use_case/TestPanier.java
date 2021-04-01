@@ -4,8 +4,7 @@ import model.panier.Panier;
 import model.produit.Produit;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import use_case.livraison.Livraisons;
-import use_case.panier.Paniers;
+import model.panier.Paniers;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -25,7 +24,7 @@ public class TestPanier {
         Produit produit = new Produit("1", "Nike", "description nike", 10);
         int NbProduitsDansPanier = 0;
         // When
-        panier.addProduit(produit);
+        panier.ajouterProduit(produit);
         // Then
         assertEquals(panier.getProduitList().size(), NbProduitsDansPanier + 1);
         assertEquals(panier.getProduitList().get(0).getName(), "Nike");
