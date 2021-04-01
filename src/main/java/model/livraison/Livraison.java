@@ -1,5 +1,6 @@
 package model.livraison;
 
+import model.Exception.DureeLivraisonNonValideException;
 import model.produit.Produit;
 import model.user.Utilisateur;
 
@@ -7,6 +8,8 @@ import java.util.Date;
 import java.util.List;
 
 public class Livraison {
+
+    private IdLivraison idLivraison;
     private Utilisateur utilisateur;
 
     private Date dateLivraison;
@@ -16,26 +19,26 @@ public class Livraison {
 
     private LivraisonType livraisonType;
     private List<Produit> produits;
-    private int dureeLIvraison;
+    private DureeLivraison dureeLivraison;
 
-    public int getDureeLIvraison() {
-        return dureeLIvraison;
-    }
-
-    public Livraison() {
-    }
-
-    public Livraison(Utilisateur utilisateur, Date dateLivraison, Date dateEnvoie, boolean isReceived, LivraisonType livraisonType) {
+    public Livraison(final IdLivraison idLivraison, final Utilisateur utilisateur, final List<Produit> produits,
+     final Date dateLivraison, final Date dateEnvoie, final boolean isReceived, final LivraisonType livraisonType) throws DureeLivraisonNonValideException {
+        this.idLivraison = idLivraison;
         this.utilisateur = utilisateur;
         this.dateLivraison = dateLivraison;
         this.dateEnvoie = dateEnvoie;
         this.isReceived = isReceived;
         this.livraisonType = livraisonType;
-         this.dureeLIvraison = dureeLIvraison;
+        this.dureeLivraison = new DureeLivraison(livraisonType);
     }
+
 
     public Utilisateur getUtilisateur() {
         return utilisateur;
+    }
+
+    public String getId() {
+        return idLivraison.getId();
     }
 
     public Date getDateLivraison() {
@@ -54,46 +57,11 @@ public class Livraison {
         return livraisonType;
     }
 
-    public void setUtilisateur(Utilisateur utilisateur) {
-        this.utilisateur = utilisateur;
-    }
-
-    public void setDateLivraison(Date dateLivraison) {
-        this.dateLivraison = dateLivraison;
-    }
-
-    public void setDateEnvoie(Date dateEnvoie) {
-        this.dateEnvoie = dateEnvoie;
-    }
-
-    public void setReceived(boolean received) {
-        isReceived = received;
-    }
-
-    public void setLivraisonType(LivraisonType livraisonType) {
-        this.livraisonType = livraisonType;
-    }
-
     public List<Produit> getProduits() {
         return produits;
     }
 
-    public void setProduits(List<Produit> produits) {
-        this.produits = produits;
-    }
-
-    public void setDureeLIvraison(int dureeLIvraison) {
-        this.dureeLIvraison = dureeLIvraison;
-    }
-
-    public void verifierTypeLivraison(){
-
-        if(getLivraisonType().equals(LivraisonType.EXPRESS)){
-            this.setDureeLIvraison(5);
-        }
-        else if(getLivraisonType().equals(LivraisonType.DEFAULT)){
-            this.setDureeLIvraison(10);
-        }
-
+    public String getDureeLIvraisonEstimee() {
+        return dureeLivraison.getDureeEstimee();
     }
 }

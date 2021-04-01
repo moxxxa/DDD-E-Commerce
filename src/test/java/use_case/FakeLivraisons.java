@@ -1,6 +1,8 @@
 package use_case;
 
+import model.Exception.DureeLivraisonNonValideException;
 import model.Exception.PrixNonValideException;
+import model.livraison.IdLivraison;
 import model.livraison.Livraison;
 import model.livraison.LivraisonType;
 import model.livraison.Livraisons;
@@ -23,7 +25,7 @@ public class FakeLivraisons implements Livraisons {
 
     Map<String, Livraison> livraisons;
 
-    public FakeLivraisons() throws PrixNonValideException {
+    public FakeLivraisons() throws PrixNonValideException, DureeLivraisonNonValideException {
         livraisons = new HashMap<>();
 
         Utilisateur utilisateurA = new Utilisateur(
@@ -34,7 +36,6 @@ public class FakeLivraisons implements Livraisons {
                 "userA@gmail.com",
                 "adresse"
         );
-        Livraison livraisonA = new Livraison();
         List<Produit> produits = new ArrayList<>();
         produits.add(new Produit(
             "produit 1",
@@ -48,10 +49,15 @@ public class FakeLivraisons implements Livraisons {
             new Prix(new BigDecimal(20.00)),
             new IdProduit("20")
         ));
-        livraisonA.setDateLivraison(new Date(10,10,2021));
-        livraisonA.setLivraisonType(LivraisonType.EXPRESS);
-        livraisonA.setProduits(produits);
-        livraisons.put("Livrasion1", livraisonA);
+        livraisons.put("Livrasion1", new Livraison(
+            new IdLivraison("1012"),
+            utilisateurA,
+            produits,
+            new Date(10,10,2021),
+            new Date(8,10,2021),
+            false,
+            LivraisonType.EXPRESS)
+        );
     }
 
     public void test1() {
