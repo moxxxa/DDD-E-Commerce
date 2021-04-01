@@ -72,10 +72,6 @@ public class Livraison {
     }
 
     public void setProduits(List<Produit> produits) {
-        if (produits == null) {
-            produits = new ArrayList<Produit>();
-        } else {
-            this.produits = produits;
-        }
+        this.produits = produits;
     }
 }
