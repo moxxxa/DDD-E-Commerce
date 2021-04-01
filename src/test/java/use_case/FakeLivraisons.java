@@ -4,7 +4,7 @@ import model.livraison.Livraison;
 import model.livraison.LivraisonType;
 import model.livraison.Livraisons;
 import model.produit.Produit;
-import model.user.User;
+import model.user.Utilisateur;
 
 import java.sql.Date;
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ public class FakeLivraisons implements Livraisons {
     public FakeLivraisons() {
         livraisons = new HashMap<>();
 
-        User userA = new User(
+        Utilisateur utilisateurA = new Utilisateur(
                 "1",
                 "userA",
                 "userA",
@@ -51,10 +51,10 @@ public class FakeLivraisons implements Livraisons {
 
     public void test1() {
         Livraison livraison1 = findById("Livrasion1");
-        assertEquals(livraison1.getUser().getName(), "userA");
-        assertEquals(livraison1.getUser().getFirstName(), "userA");
-        assertEquals(livraison1.getUser().getEmail(), "userA@gmail.com");
-        assertEquals(livraison1.getUser().getAddress(), "adresse");
+        assertEquals(livraison1.getUtilisateur().getNom(), "userA");
+        assertEquals(livraison1.getUtilisateur().getPrenom(), "userA");
+        assertEquals(livraison1.getUtilisateur().getEmail(), "userA@gmail.com");
+        assertEquals(livraison1.getUtilisateur().getAdresse(), "adresse");
     }
 
     public void test2() {

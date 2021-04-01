@@ -3,7 +3,7 @@ package use_case;
 import model.panier.Panier;
 import model.panier.Paniers;
 import model.produit.Produit;
-import model.user.User;
+import model.user.Utilisateur;
 
 import java.sql.Date;
 import java.util.ArrayList;
@@ -23,7 +23,7 @@ public class FakePaniers implements Paniers {
         paniers = new HashMap<>();
 
         //creat user
-        User mouna = new User(
+        Utilisateur mouna = new Utilisateur(
                 "1",
                 "Mouna",
                 "Hichri",
@@ -34,7 +34,7 @@ public class FakePaniers implements Paniers {
         // creat basket
         Panier panierMouna = new Panier();
         List<Produit> mounaProduits = new ArrayList<>();
-        panierMouna.setUser(mouna);
+        panierMouna.setUtilisateur(mouna);
         // create product
         Produit nike = new Produit("1", "Nike", "Nike description", 10);
         Produit adidas = new Produit("2", "Adidas", "Adidas description", 10);
@@ -50,7 +50,7 @@ public class FakePaniers implements Paniers {
     }
 
     @Override
-    public Panier findById(String idPanier) {
+    public Panier trouverParId(String idPanier) {
         return paniers.get(idPanier);
     }
 

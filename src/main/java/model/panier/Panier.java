@@ -1,21 +1,19 @@
 package model.panier;
 
 import model.produit.Produit;
-import model.user.User;
+import model.user.Utilisateur;
 
-import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class Panier {
-    private User user;
+    private Utilisateur utilisateur;
     private List<Produit> produitList;
 
-    public Panier(List<Produit> produitList, User user) {
+    public Panier(List<Produit> produitList, Utilisateur utilisateur) {
         this.produitList = produitList;
         this.produitList.addAll(produitList);
-        this.user = user;
+        this.utilisateur = utilisateur;
     }
 
     public Panier(){
@@ -25,16 +23,16 @@ public class Panier {
         return produitList;
     }
 
-    public User getUser() {
-        return user;
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
     }
 
     public void setProduitList(List<Produit> produitList) {
         this.produitList = produitList;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
     }
 
     public void ajouterProduit(Produit produit){
