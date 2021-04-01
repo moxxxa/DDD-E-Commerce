@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import model.panier.Paniers;
 import use_case.panier.AjouterProduitAuPanier;
+import use_case.panier.SupprimerProduitPanier;
 
 import java.math.BigDecimal;
 
@@ -45,7 +46,7 @@ public class PanierTest {
         Panier panier = paniers.trouverParId("panier_non_vide");
         int NbProduitsDansPanier = 3;
         // When
-        panier.supprimerProduit("1");
+        panier = new SupprimerProduitPanier(paniers, produits).supprimerProduit(panier.getId(), "chaussure_nike");
         // Then
         assertEquals(panier.getProduitList().size(), NbProduitsDansPanier - 1);
     }
@@ -56,7 +57,7 @@ public class PanierTest {
         Panier panier = paniers.trouverParId("panier_vide");
         int NbProduitsDansPanier = 0;
         //  When
-        panier.supprimerProduit("1");
+        panier = new SupprimerProduitPanier(paniers, produits).supprimerProduit(panier.getId(), "chaussure_nike");
         //  Then
         assertEquals(panier.getProduitList().size(), NbProduitsDansPanier);
     }
@@ -67,7 +68,7 @@ public class PanierTest {
         Panier panier = paniers.trouverParId("panier_non_vide");
         int NbProduitsDansPanier = 3;
         //  When
-        panier.supprimerProduit("nexistepas");
+        panier = new SupprimerProduitPanier(paniers, produits).supprimerProduit(panier.getId(), "n'existe pas");
         //  Then
         assertEquals(panier.getProduitList().size(), NbProduitsDansPanier);
     }

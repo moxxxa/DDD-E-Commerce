@@ -1,5 +1,6 @@
 package model.panier;
 
+import model.produit.IdProduit;
 import model.produit.Produit;
 import model.user.Utilisateur;
 
@@ -30,18 +31,19 @@ public class Panier {
         return idPanier.getId();
     }
 
-    public void ajouterProduit(Produit produit){
+    public void ajouterProduit(final Produit produit){
         if(produitList == null) {
             produitList= new ArrayList<Produit>();
         }
         this.produitList.add(produit);
     }
 
-    public void supprimerProduit(String id) {
-        if (null != id && produitList.size() > 0) {
+    public void supprimerProduit(final Produit produit) {
+        String idAChercher = produit.getId();
+        if (null != idAChercher && produitList.size() > 0) {
             int index = 0;
             for (Produit p : produitList) {
-                if (p.getId().equals(id)) {
+                if (p.getId().equals(idAChercher)) {
                     produitList.remove(index);
                     break;
                 }

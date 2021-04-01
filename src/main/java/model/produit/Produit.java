@@ -25,6 +25,8 @@ public class Produit {
         stock -= 1;
     }
 
+    public void incrementStock() { stock += 1;}
+
     public String getName() {
         return name;
     }

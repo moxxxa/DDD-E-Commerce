@@ -30,5 +30,4 @@ public class AjouterProduitAuPanier {
         return panier;
     }
 
-
 }
