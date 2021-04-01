@@ -45,13 +45,15 @@ public class Panier {
     }
 
     public void supprimerProduit(String id) {
-        if (null != id && produitList != null) {
-            System.out.println(produitList == null);
-            Optional<Produit> produit = produitList.stream().filter(unproduit -> unproduit.getId().equals(id)).findFirst();
-
-            if (produit.isPresent()) {
-                produitList.remove(produitList.indexOf(produit.get()));
+        if (null != id && produitList.size() > 0) {
+            int index = 0;
+            for (Produit p : produitList) {
+                if (p.getId() == id) {
+                    break;
+                }
+                index ++;
             }
+            produitList.remove(index);
         }
     }
 }
