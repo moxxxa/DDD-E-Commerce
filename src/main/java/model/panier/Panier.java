@@ -26,20 +26,12 @@ public class Panier {
         return utilisateur;
     }
 
-    public void setProduitList(List<Produit> produitList) {
-        this.produitList = produitList;
-    }
-
-    public void setUtilisateur(Utilisateur utilisateur) {
-        this.utilisateur = utilisateur;
-    }
-
     public String getId() {
         return idPanier.getId();
     }
 
     public void ajouterProduit(Produit produit){
-        if(produitList == null){
+        if(produitList == null) {
             produitList= new ArrayList<Produit>();
         }
         this.produitList.add(produit);

@@ -5,7 +5,7 @@ import java.sql.Date;
 
 public class Utilisateur {
 
-    private String id;
+    private IdUtilisateur id;
     private String nom;
     private String prenom;
     private Date dateAnniversaire;
@@ -13,7 +13,7 @@ public class Utilisateur {
     // Raison de simplicités
     private String adresse;
 
-    public Utilisateur(String id, String name, String prenom, Date dateAnniversaire, String email, String adresse) {
+    public Utilisateur(IdUtilisateur id, String name, String prenom, Date dateAnniversaire, String email, String adresse) {
         this.id = id;
         this.nom = name;
         this.prenom = prenom;
@@ -22,12 +22,12 @@ public class Utilisateur {
         this.adresse = adresse;
     }
 
-    public Utilisateur(){
+    public Utilisateur() {
 
     }
 
     public String getId() {
-        return id;
+        return id.getId();
     }
 
     public String getNom() {
@@ -48,10 +48,6 @@ public class Utilisateur {
 
     public String getAdresse() {
         return adresse;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public void setNom(String nom) {

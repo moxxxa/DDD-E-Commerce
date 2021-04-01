@@ -5,6 +5,7 @@ import model.livraison.LivraisonType;
 import model.livraison.Livraisons;
 import model.produit.IdProduit;
 import model.produit.Produit;
+import model.user.IdUtilisateur;
 import model.user.Utilisateur;
 
 import java.sql.Date;
@@ -23,7 +24,7 @@ public class FakeLivraisons implements Livraisons {
         livraisons = new HashMap<>();
 
         Utilisateur utilisateurA = new Utilisateur(
-                "1",
+                new IdUtilisateur("1"),
                 "userA",
                 "userA",
                 new Date(10, 10, 1997),

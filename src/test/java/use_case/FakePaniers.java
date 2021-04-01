@@ -5,6 +5,7 @@ import model.panier.Panier;
 import model.panier.Paniers;
 import model.produit.IdProduit;
 import model.produit.Produit;
+import model.user.IdUtilisateur;
 import model.user.Utilisateur;
 
 import java.sql.Date;
@@ -31,7 +32,7 @@ public class FakePaniers implements Paniers {
         mounaProduits.add(puma);
 
         Panier panierMouna = new Panier(mounaProduits, new Utilisateur(
-                "1",
+                new IdUtilisateur("1"),
                 "Mouna",
                 "Hichri",
                 new Date(10, 10, 1997),
@@ -43,7 +44,7 @@ public class FakePaniers implements Paniers {
         List<Produit> stanProduits = new ArrayList<>();
 
         paniers.put("panier_vide", new Panier(stanProduits, new Utilisateur(
-                "1",
+                new IdUtilisateur("2"),
                 "stan",
                 "Durand",
                 new Date(10, 10, 1997),
