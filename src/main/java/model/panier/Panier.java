@@ -13,10 +13,6 @@ public class Panier {
 
     public Panier(){};
 
-    public Panier(List<Produit> produitList) {
-        this.produitList = produitList;
-    }
-
     public Panier(List<Produit> produitList, User user) {
         this.produitList = produitList;
         this.user = user;
@@ -39,13 +35,10 @@ public class Panier {
     }
 
     public void addProduit(Produit produit){
-
         if(produitList == null){
             produitList= new ArrayList<Produit>();
             this.produitList.add(produit);
         }
-
-
     }
 
     public void supprimerProduit(String id) {
@@ -60,8 +53,6 @@ public class Panier {
                 }
                 index ++;
             }
-
-            //  produitList.stream().filter(produit -> produit.getId().equals(id));
         }
     }
 }
