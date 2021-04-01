@@ -49,24 +49,4 @@ public class Utilisateur {
     public String getAdresse() {
         return adresse;
     }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
-
-    public void setDateAnniversaire(Date dateAnniversaire) {
-        this.dateAnniversaire = dateAnniversaire;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
-    }
 }

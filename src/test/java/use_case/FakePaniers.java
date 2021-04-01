@@ -1,13 +1,16 @@
 package use_case;
 
+import model.Exception.PrixNonValideException;
 import model.panier.IdPanier;
 import model.panier.Panier;
 import model.panier.Paniers;
 import model.produit.IdProduit;
+import model.produit.Prix;
 import model.produit.Produit;
 import model.user.IdUtilisateur;
 import model.user.Utilisateur;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,15 +20,15 @@ import java.util.Map;
 public class FakePaniers implements Paniers {
     Map<String, Panier> paniers;
 
-    public FakePaniers() {
+    public FakePaniers() throws PrixNonValideException {
 
         paniers = new HashMap<>();
 
         List<Produit> mounaProduits = new ArrayList<>();
 
-        Produit nike = new Produit("Nike", "Nike description",10, new IdProduit("10"));
-        Produit adidas = new Produit("Adidas", "Adidas description", 10, new IdProduit("11"));
-        Produit puma = new Produit("Puma", "Puma description", 10, new IdProduit("12"));
+        Produit nike = new Produit("Nike", "Nike description", new Prix(new BigDecimal(10.00)), new IdProduit("10"));
+        Produit adidas = new Produit("Adidas", "Adidas description", new Prix(new BigDecimal(10.00)), new IdProduit("11"));
+        Produit puma = new Produit("Puma", "Puma description", new Prix(new BigDecimal(10.00)), new IdProduit("12"));
 
         mounaProduits.add(nike);
         mounaProduits.add(adidas);

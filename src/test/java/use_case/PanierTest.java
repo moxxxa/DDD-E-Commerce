@@ -1,5 +1,6 @@
 package use_case;
 
+import model.Exception.PrixNonValideException;
 import model.panier.Panier;
 import model.produit.IdProduit;
 import model.produit.Produit;
@@ -9,6 +10,8 @@ import org.junit.jupiter.api.Test;
 import model.panier.Paniers;
 import use_case.panier.AjouterProduitAuPanier;
 
+import java.math.BigDecimal;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PanierTest {
@@ -16,7 +19,7 @@ public class PanierTest {
     private Produits produits;
 
     @BeforeEach
-    public void init() {
+    public void init() throws PrixNonValideException {
         this.produits = new FakeProduits();
         this.paniers = new FakePaniers();
     }
@@ -33,7 +36,7 @@ public class PanierTest {
         assertEquals(panier.getProduitList().size(), NbProduitsDansPanier + 1);
         assertEquals(panier.getProduitList().get(0).getName(), "Nike");
         assertEquals(panier.getProduitList().get(0).getDescription(), "description nike");
-        assertEquals(panier.getProduitList().get(0).getPrice(), 10);
+        assertEquals(panier.getProduitList().get(0).getPrice(), new BigDecimal(10.00));
     }
 
     @Test

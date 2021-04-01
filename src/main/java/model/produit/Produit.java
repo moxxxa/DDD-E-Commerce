@@ -1,20 +1,20 @@
 package model.produit;
 
+import java.math.BigDecimal;
+
 //  Agregate root
 public class Produit {
-    private String id;
     private String name;
     private String description;
-    private double price;
+    private Prix prix;
     private long stock;
     private IdProduit idProduit;
 
-    public Produit(String name, String description, double price, IdProduit idProduit) {
-        this.id = id;
+    public Produit(final String name, final String description, final Prix prix, final IdProduit idProduit) {
         this.name = name;
         this.description = description;
-        this.price = price;
-        idProduit = idProduit;
+        this.prix = prix;
+        this.idProduit = idProduit;
     }
 
     public boolean leStockEstSuperieurAZero() {
@@ -33,8 +33,8 @@ public class Produit {
         return description;
     }
 
-    public double getPrice() {
-        return price;
+    public BigDecimal getPrice() {
+        return prix.getPrix();
     }
 
     public String getId() {

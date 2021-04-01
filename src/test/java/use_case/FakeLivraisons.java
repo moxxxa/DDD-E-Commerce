@@ -1,13 +1,16 @@
 package use_case;
 
+import model.Exception.PrixNonValideException;
 import model.livraison.Livraison;
 import model.livraison.LivraisonType;
 import model.livraison.Livraisons;
 import model.produit.IdProduit;
+import model.produit.Prix;
 import model.produit.Produit;
 import model.user.IdUtilisateur;
 import model.user.Utilisateur;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,7 +23,7 @@ public class FakeLivraisons implements Livraisons {
 
     Map<String, Livraison> livraisons;
 
-    public FakeLivraisons() {
+    public FakeLivraisons() throws PrixNonValideException {
         livraisons = new HashMap<>();
 
         Utilisateur utilisateurA = new Utilisateur(
@@ -36,13 +39,13 @@ public class FakeLivraisons implements Livraisons {
         produits.add(new Produit(
             "produit 1",
             "description produit 1",
-            10.00,
+            new Prix(new BigDecimal(10.00)),
             new IdProduit("10")
         ));
         produits.add(new Produit(
             "produit 2",
             "description produit 2",
-            20.00,
+            new Prix(new BigDecimal(20.00)),
             new IdProduit("20")
         ));
         livraisonA.setDateLivraison(new Date(10,10,2021));
