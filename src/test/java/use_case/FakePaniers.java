@@ -53,4 +53,10 @@ public class FakePaniers implements Paniers {
     public Panier findById(String idPanier) {
         return paniers.get(idPanier);
     }
+
+    @Override
+    public void sauvegarderPanier(Panier panier) {
+
+    }
+
 }
