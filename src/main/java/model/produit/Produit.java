@@ -7,12 +7,14 @@ public class Produit {
     private String description;
     private double price;
     private long stock;
+    private IdProduit idProduit;
 
-    public Produit(String id, String name, String description, double price) {
+    public Produit(String name, String description, double price, IdProduit idProduit) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
+        idProduit = idProduit;
     }
 
     public boolean leStockEstSuperieurAZero() {
@@ -37,6 +39,10 @@ public class Produit {
 
     public String getId() {
         return id;
+    }
+
+    public String getIdProduit() {
+        return idProduit.getId();
     }
 
 }

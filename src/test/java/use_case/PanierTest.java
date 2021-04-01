@@ -1,19 +1,23 @@
 package use_case;
 
 import model.panier.Panier;
+import model.produit.IdProduit;
 import model.produit.Produit;
+import model.produit.Produits;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import model.panier.Paniers;
+import use_case.panier.AjouterProduitAuPanier;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TestPanier {
+public class PanierTest {
     private Paniers paniers;
-
+    private Produits produits;
 
     @BeforeEach
     public void init() {
+        this.produits = new FakeProduits();
         this.paniers = new FakePaniers();
     }
 
@@ -21,10 +25,10 @@ public class TestPanier {
     void testAjouterProduitPanier() {
         // Given
         Panier panier = paniers.trouverParId("panier_vide");
-        Produit produit = new Produit("1", "Nike", "description nike", 10);
+        Produit produit = produits.trouverParId("chaussure_nike");
         int NbProduitsDansPanier = 0;
         // When
-        panier.ajouterProduit(produit);
+        panier = new AjouterProduitAuPanier(paniers, produits).ajouterProduit(panier.getId(), produit.getId());
         // Then
         assertEquals(panier.getProduitList().size(), NbProduitsDansPanier + 1);
         assertEquals(panier.getProduitList().get(0).getName(), "Nike");
@@ -64,6 +68,5 @@ public class TestPanier {
         //  Then
         assertEquals(panier.getProduitList().size(), NbProduitsDansPanier);
     }
-
 
 }

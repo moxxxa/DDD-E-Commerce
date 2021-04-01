@@ -1,7 +1,9 @@
 package use_case;
 
+import model.panier.IdPanier;
 import model.panier.Panier;
 import model.panier.Paniers;
+import model.produit.IdProduit;
 import model.produit.Produit;
 import model.user.Utilisateur;
 
@@ -11,42 +13,43 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 public class FakePaniers implements Paniers {
-
-
     Map<String, Panier> paniers;
 
     public FakePaniers() {
 
         paniers = new HashMap<>();
 
-        //creat user
-        Utilisateur mouna = new Utilisateur(
+        List<Produit> mounaProduits = new ArrayList<>();
+
+        Produit nike = new Produit("Nike", "Nike description",10, new IdProduit("10"));
+        Produit adidas = new Produit("Adidas", "Adidas description", 10, new IdProduit("11"));
+        Produit puma = new Produit("Puma", "Puma description", 10, new IdProduit("12"));
+
+        mounaProduits.add(nike);
+        mounaProduits.add(adidas);
+        mounaProduits.add(puma);
+
+        Panier panierMouna = new Panier(mounaProduits, new Utilisateur(
                 "1",
                 "Mouna",
                 "Hichri",
                 new Date(10, 10, 1997),
                 "mouna@gmail.com",
                 "adresse"
-        );
-        // creat basket
-        Panier panierMouna = new Panier();
-        List<Produit> mounaProduits = new ArrayList<>();
-        panierMouna.setUtilisateur(mouna);
-        // create product
-        Produit nike = new Produit("1", "Nike", "Nike description", 10);
-        Produit adidas = new Produit("2", "Adidas", "Adidas description", 10);
-        Produit puma = new Produit("3", "Puma", "Puma description", 10);
-        // add product to basket
-        mounaProduits.add(nike);
-        mounaProduits.add(adidas);
-        mounaProduits.add(puma);
-        // fil up basket
-        panierMouna.setProduitList(mounaProduits);
+        ), new IdPanier("1"));
         paniers.put("panier_non_vide", panierMouna);
-        paniers.put("panier_vide", new Panier());
+
+        List<Produit> stanProduits = new ArrayList<>();
+
+        paniers.put("panier_vide", new Panier(stanProduits, new Utilisateur(
+                "1",
+                "stan",
+                "Durand",
+                new Date(10, 10, 1997),
+                "stan@gmail.com",
+                "adresse"
+        ), new IdPanier("2")));
     }
 
     @Override

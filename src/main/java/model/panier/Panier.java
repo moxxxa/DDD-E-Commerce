@@ -9,16 +9,15 @@ import java.util.List;
 public class Panier {
     private Utilisateur utilisateur;
     private List<Produit> produitList;
+    private IdPanier idPanier;
 
-    public Panier(List<Produit> produitList, Utilisateur utilisateur) {
+    public Panier(List<Produit> produitList, Utilisateur utilisateur, IdPanier idPanier) {
         this.produitList = produitList;
         this.produitList.addAll(produitList);
         this.utilisateur = utilisateur;
+        idPanier = idPanier;
     }
 
-    public Panier(){
-        this.produitList = new ArrayList<Produit>();
-    };
     public List<Produit> getProduitList() {
         return produitList;
     }
@@ -33,6 +32,10 @@ public class Panier {
 
     public void setUtilisateur(Utilisateur utilisateur) {
         this.utilisateur = utilisateur;
+    }
+
+    public String getId() {
+        return idPanier.getId();
     }
 
     public void ajouterProduit(Produit produit){
