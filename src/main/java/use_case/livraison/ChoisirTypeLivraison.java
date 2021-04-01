@@ -17,7 +17,7 @@ public class ChoisirTypeLivraison {
 
         Livraison livraison = livraisons.findById(idLivraison);
         livraison.verifierTypeLivraison();
-        livraisons.sauvegarderPanier(livraison);
+        livraisons.sauvegarderLivraison(livraison);
         return livraison;
     }
 
