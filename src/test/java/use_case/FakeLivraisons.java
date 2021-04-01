@@ -2,7 +2,7 @@ package use_case;
 
 import model.livraison.Livraison;
 import model.livraison.LivraisonType;
-import use_case.livraison.Livraisons;
+import model.livraison.Livraisons;
 import model.produit.Produit;
 import model.user.User;
 

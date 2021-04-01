@@ -1,7 +1,7 @@
 package use_case;
 
 import model.panier.Panier;
-import use_case.panier.Paniers;
+import model.panier.Paniers;
 import model.produit.Produit;
 import model.user.User;
 
