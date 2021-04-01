@@ -38,10 +38,6 @@ public class Produit {
     }
 
     public String getId() {
-        return id;
-    }
-
-    public String getIdProduit() {
         return idProduit.getId();
     }
 

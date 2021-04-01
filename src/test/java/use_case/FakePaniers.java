@@ -37,7 +37,7 @@ public class FakePaniers implements Paniers {
                 new Date(10, 10, 1997),
                 "mouna@gmail.com",
                 "adresse"
-        ), new IdPanier("1"));
+        ), new IdPanier("panier_non_vide"));
         paniers.put("panier_non_vide", panierMouna);
 
         List<Produit> stanProduits = new ArrayList<>();
@@ -49,7 +49,7 @@ public class FakePaniers implements Paniers {
                 new Date(10, 10, 1997),
                 "stan@gmail.com",
                 "adresse"
-        ), new IdPanier("2")));
+        ), new IdPanier("panier_vide")));
     }
 
     @Override
@@ -59,7 +59,7 @@ public class FakePaniers implements Paniers {
 
     @Override
     public void sauvegarderPanier(Panier panier) {
-
+        paniers.put(panier.getId(), panier);
     }
 
 }

@@ -28,5 +28,6 @@ public class FakeProduits implements Produits {
 
     @Override
     public void sauvegarderProduit(Produit produit) {
+        produits.put(produit.getId(), produit);
     }
 }

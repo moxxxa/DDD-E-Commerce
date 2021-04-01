@@ -27,7 +27,6 @@ public class AjouterProduitAuPanier {
 
         produits.sauvegarderProduit(produit);
         paniers.sauvegarderPanier(panier);
-
         return panier;
 
     }
