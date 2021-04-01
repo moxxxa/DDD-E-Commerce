@@ -48,12 +48,12 @@ public class Panier {
         if (null != id && produitList.size() > 0) {
             int index = 0;
             for (Produit p : produitList) {
-                if (p.getId() == id) {
+                if (p.getId().equals(id)) {
+                    produitList.remove(index);
                     break;
                 }
                 index ++;
             }
-            produitList.remove(index);
         }
     }
 }
