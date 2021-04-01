@@ -12,9 +12,9 @@ public class FakeProduits implements Produits {
 
     public FakeProduits() {
         produits = new HashMap<>();
-        Produit chaussure_nike = new Produit("Nike", "Nike description",10, new IdProduit("10"));
-        Produit chassure_adidas = new Produit("Adidas", "Adidas description", 10, new IdProduit("11"));
-        Produit chassure_puma = new Produit("Puma", "Puma description", 10, new IdProduit("12"));
+        Produit chaussure_nike = new Produit("Nike", "Nike description",10, new IdProduit("chaussure_nike"));
+        Produit chassure_adidas = new Produit("Adidas", "Adidas description", 10, new IdProduit("chassure_adidas"));
+        Produit chassure_puma = new Produit("Puma", "Puma description", 10, new IdProduit("chassure_puma"));
 
         produits.put("chaussure_nike", chaussure_nike);
         produits.put("chassure_adidas", chassure_adidas);
