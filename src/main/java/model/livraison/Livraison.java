@@ -14,17 +14,22 @@ public class Livraison {
     private boolean isReceived;
     private LivraisonType livraisonType;
     private List<Produit> produits;
+    private int dureeLIvraison;
 
+    public int getDureeLIvraison() {
+        return dureeLIvraison;
+    }
 
     public Livraison() {
     }
 
-    public Livraison(User user, Date dateLivraison, Date dateEnvoie, boolean isReceived, LivraisonType livraisonType) {
+    public Livraison(User user, Date dateLivraison, Date dateEnvoie, boolean isReceived, LivraisonType livraisonType, int dureeLIvraison) {
         this.user = user;
         this.dateLivraison = dateLivraison;
         this.dateEnvoie = dateEnvoie;
         this.isReceived = isReceived;
         this.livraisonType = livraisonType;
+         this.dureeLIvraison = dureeLIvraison;
     }
 
     public User getUser() {
@@ -73,5 +78,20 @@ public class Livraison {
 
     public void setProduits(List<Produit> produits) {
         this.produits = produits;
+    }
+
+    public void setDureeLIvraison(int dureeLIvraison) {
+        this.dureeLIvraison = dureeLIvraison;
+    }
+
+    public void verifierTypeLivraison(){
+
+        if(getLivraisonType().equals(LivraisonType.EXPRESS)){
+            this.setDureeLIvraison(5);
+        }
+        else if(getLivraisonType().equals(LivraisonType.DEFAULT)){
+            this.setDureeLIvraison(10);
+        }
+
     }
 }

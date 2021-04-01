@@ -68,4 +68,9 @@ public class FakeLivraisons implements Livraisons {
     public Livraison findById(String idLivraison) {
         return livraisons.get(idLivraison);
     }
+
+    @Override
+    public void sauvegarderPanier(Livraison livraison) {
+        
+    }
 }
