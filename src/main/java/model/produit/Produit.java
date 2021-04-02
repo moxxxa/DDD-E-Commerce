@@ -22,8 +22,11 @@ public class Produit {
         this.stock = stock;
     }
 
-    public boolean disponible() {
-        return stock > 0;
+    public boolean disponible() throws StockEpuiserException {
+        if(stock > 0){
+            return true;
+        }
+        throw  new StockEpuiserException(MessagesModel.STOCK_EPUISER);
     }
 
     public void diminuerStockDeUn() throws StockEpuiserException {

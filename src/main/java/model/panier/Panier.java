@@ -9,16 +9,16 @@ import java.util.List;
 
 public class Panier {
     private Utilisateur utilisateur;
-    private List<Produit> produitList;
+    private List<String> produitList;
     private IdPanier idPanier;
 
-    public Panier(List<Produit> produitList, Utilisateur utilisateur, IdPanier idPanier) {
+    public Panier(List<String> produitList, Utilisateur utilisateur, IdPanier idPanier) {
         this.produitList = produitList;
         this.utilisateur = utilisateur;
         this.idPanier = idPanier;
     }
 
-    public List<Produit> getProduitList() {
+    public List<String> getProduitList() {
         return produitList;
     }
 
@@ -31,31 +31,17 @@ public class Panier {
     }
 
 
-    public void ajouterProduit(final Produit produit) {
-        if(produitList == null) {
-            produitList= new ArrayList<Produit>();
+    public void ajouterProduit(final String idProduit) {
+        if (produitList == null) {
+            produitList = new ArrayList<String>();
         }
-        this.produitList.add(produit);
+        this.produitList.add(idProduit);
     }
 
-    public void supprimerProduit(final Produit produit) {
-        if(produit != null) {
-            String idAChercher = produit.getId();
-            if (null != idAChercher && produitList.size() > 0) {
-                produitList.remove(chercherProduitParId(idAChercher));
-            }
-            produit.incrementStock();
+    public void supprimerProduit(final String produitId) {
+        if (produitId != null && produitList.size() > 0) {
+            produitList.remove(produitId);
         }
     }
 
-    private int chercherProduitParId(String idAChercher) {
-        int index = 0;
-        for (Produit p : produitList) {
-            if (p.getId().equals(idAChercher)) {
-                break;
-            }
-            index ++;
-        }
-        return index;
-    }
 }

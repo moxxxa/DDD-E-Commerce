@@ -1,5 +1,6 @@
 package use_case.panier;
 
+import model.Exception.StockEpuiserException;
 import model.panier.Panier;
 import model.panier.Paniers;
 import model.produit.Produit;
@@ -18,8 +19,8 @@ public class SupprimerProduitPanier {
         Panier panier = paniers.trouverParId(idPanier);
         Produit produit = produits.trouverParId(idProduit);
 
-
-        panier.supprimerProduit(produit);
+        panier.supprimerProduit(idProduit);
+        produit.incrementStock();
 
         produits.sauvegarderProduit(produit);
         paniers.sauvegarderPanier(panier);

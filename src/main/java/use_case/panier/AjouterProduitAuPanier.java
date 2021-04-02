@@ -22,7 +22,7 @@ public class AjouterProduitAuPanier {
 
         produit.disponible();
         produit.diminuerStockDeUn();
-        panier.ajouterProduit(produit);
+        panier.ajouterProduit(idProduit);
 
         produits.sauvegarderProduit(produit);
         paniers.sauvegarderPanier(panier);
