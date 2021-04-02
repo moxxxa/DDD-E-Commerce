@@ -1,6 +1,7 @@
 package use_case;
 
 import model.Exception.PrixNonValideException;
+import model.Exception.StockEpuiserException;
 import model.panier.Panier;
 import model.produit.IdProduit;
 import model.produit.Produit;
@@ -26,7 +27,7 @@ public class PanierTest {
     }
 
     @Test
-    void testAjouterProduitPanier() {
+    void testAjouterProduitPanier() throws StockEpuiserException {
         // Given
         Panier panier = paniers.trouverParId("panier_vide");
         Produit produit = produits.trouverParId("chaussure_nike");

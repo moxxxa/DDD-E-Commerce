@@ -42,16 +42,20 @@ public class Panier {
         if(produit != null) {
             String idAChercher = produit.getId();
             if (null != idAChercher && produitList.size() > 0) {
-                int index = 0;
-                for (Produit p : produitList) {
-                    if (p.getId().equals(idAChercher)) {
-                        produitList.remove(index);
-                        break;
-                    }
-                    index ++;
-                }
+                produitList.remove(chercherProduitParId(idAChercher));
             }
             produit.incrementStock();
         }
+    }
+
+    private int chercherProduitParId(String idAChercher) {
+        int index = 0;
+        for (Produit p : produitList) {
+            if (p.getId().equals(idAChercher)) {
+                break;
+            }
+            index ++;
+        }
+        return index;
     }
 }
