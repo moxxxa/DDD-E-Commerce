@@ -1,7 +1,7 @@
 package model.livraison;
 
 import model.Exception.DureeLivraisonNonValideException;
-import model.messageErreur.LivraisonMessage;
+import model.messageErreur.MessagesModel;
 
 public class DureeLivraison {
     private final String duree;
@@ -14,7 +14,7 @@ public class DureeLivraison {
         if(livraisonType.equals(LivraisonType.DEFAULT)) {
             duree = "10 jours";
         }
-        throw new DureeLivraisonNonValideException(LivraisonMessage.TypeLivraisonNexistePas.name());
+        throw new DureeLivraisonNonValideException(MessagesModel.TYPE_LIVRAISON_NON_VALIDE);
     }
 
     public String getDureeEstimee() {

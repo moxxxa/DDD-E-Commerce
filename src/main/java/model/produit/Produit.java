@@ -1,5 +1,9 @@
 package model.produit;
 
+import model.Exception.PrixNonValideException;
+import model.Exception.StockEpuiserException;
+import model.messageErreur.MessagesModel;
+
 import java.math.BigDecimal;
 
 //  Agregate root
@@ -18,12 +22,16 @@ public class Produit {
         this.stock = stock;
     }
 
-    public boolean leStockEstSuperieurAZero() {
+    public boolean disponible() {
         return stock > 0;
     }
 
-    public void diminuerStockDeUn() {
-        stock -= 1;
+    public void diminuerStockDeUn() throws StockEpuiserException {
+        if (stock > 0) {
+            stock -= 1;
+            return ;
+        }
+        throw new StockEpuiserException(MessagesModel.STOCK_EPUISER);
     }
 
     public void incrementStock() { stock += 1;}

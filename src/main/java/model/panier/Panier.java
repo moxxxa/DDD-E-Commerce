@@ -31,10 +31,7 @@ public class Panier {
     }
 
 
-    public void ajouterProduit(final Produit produit){
-        if (produit.leStockEstSuperieurAZero()) {
-            produit.diminuerStockDeUn();
-        }
+    public void ajouterProduit(final Produit produit) {
         if(produitList == null) {
             produitList= new ArrayList<Produit>();
         }
@@ -42,7 +39,7 @@ public class Panier {
     }
 
     public void supprimerProduit(final Produit produit) {
-        if(produit != null){
+        if(produit != null) {
             String idAChercher = produit.getId();
             if (null != idAChercher && produitList.size() > 0) {
                 int index = 0;

@@ -1,7 +1,7 @@
 package model.produit;
 
 import model.Exception.PrixNonValideException;
-import model.messageErreur.PrixMessage;
+import model.messageErreur.MessagesModel;
 
 import java.math.BigDecimal;
 
@@ -10,7 +10,7 @@ public class Prix {
 
     public Prix(BigDecimal prix) throws PrixNonValideException {
         if (prix.compareTo(BigDecimal.ZERO) == 0) {
-            throw new PrixNonValideException(PrixMessage.prixNonValide.name());
+            throw new PrixNonValideException(MessagesModel.PRIX_NON_VALIDE);
         }
         this.prix = prix;
     }
