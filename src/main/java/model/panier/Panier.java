@@ -14,9 +14,8 @@ public class Panier {
 
     public Panier(List<Produit> produitList, Utilisateur utilisateur, IdPanier idPanier) {
         this.produitList = produitList;
-        this.produitList.addAll(produitList);
         this.utilisateur = utilisateur;
-        idPanier = idPanier;
+        this.idPanier = idPanier;
     }
 
     public List<Produit> getProduitList() {
@@ -31,7 +30,11 @@ public class Panier {
         return idPanier.getId();
     }
 
+
     public void ajouterProduit(final Produit produit){
+        if (produit.leStockEstSuperieurAZero()) {
+            produit.diminuerStockDeUn();
+        }
         if(produitList == null) {
             produitList= new ArrayList<Produit>();
         }
@@ -39,16 +42,19 @@ public class Panier {
     }
 
     public void supprimerProduit(final Produit produit) {
-        String idAChercher = produit.getId();
-        if (null != idAChercher && produitList.size() > 0) {
-            int index = 0;
-            for (Produit p : produitList) {
-                if (p.getId().equals(idAChercher)) {
-                    produitList.remove(index);
-                    break;
+        if(produit != null){
+            String idAChercher = produit.getId();
+            if (null != idAChercher && produitList.size() > 0) {
+                int index = 0;
+                for (Produit p : produitList) {
+                    if (p.getId().equals(idAChercher)) {
+                        produitList.remove(index);
+                        break;
+                    }
+                    index ++;
                 }
-                index ++;
             }
+            produit.incrementStock();
         }
     }
 }

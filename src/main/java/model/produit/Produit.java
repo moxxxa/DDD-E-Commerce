@@ -10,11 +10,12 @@ public class Produit {
     private long stock;
     private IdProduit idProduit;
 
-    public Produit(final String name, final String description, final Prix prix, final IdProduit idProduit) {
+    public Produit(final String name, final String description, final Prix prix, final IdProduit idProduit, final long stock) {
         this.name = name;
         this.description = description;
         this.prix = prix;
         this.idProduit = idProduit;
+        this.stock = stock;
     }
 
     public boolean leStockEstSuperieurAZero() {
@@ -42,5 +43,7 @@ public class Produit {
     public String getId() {
         return idProduit.getId();
     }
+    
+
 
 }

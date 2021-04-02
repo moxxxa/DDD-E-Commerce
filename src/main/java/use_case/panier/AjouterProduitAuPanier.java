@@ -19,11 +19,9 @@ public class AjouterProduitAuPanier {
         Panier panier = paniers.trouverParId(idPanier);
         Produit produit = produits.trouverParId(idProduit);
 
-        if (produit.leStockEstSuperieurAZero()) {
-            produit.diminuerStockDeUn();
-            //  TODO passer IDProduit au lien du produit entier
-            panier.ajouterProduit(produit);
-        }
+
+        panier.ajouterProduit(produit);
+
 
         produits.sauvegarderProduit(produit);
         paniers.sauvegarderPanier(panier);

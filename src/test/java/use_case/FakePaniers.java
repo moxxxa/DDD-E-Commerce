@@ -26,9 +26,9 @@ public class FakePaniers implements Paniers {
 
         List<Produit> mounaProduits = new ArrayList<>();
 
-        Produit nike = new Produit("Nike", "Nike description", new Prix(new BigDecimal(10.00)), new IdProduit("10"));
-        Produit adidas = new Produit("Adidas", "Adidas description", new Prix(new BigDecimal(10.00)), new IdProduit("11"));
-        Produit puma = new Produit("Puma", "Puma description", new Prix(new BigDecimal(10.00)), new IdProduit("12"));
+        Produit nike = new Produit("Nike", "description nike", new Prix(new BigDecimal(10.00)), new IdProduit("chaussure_nike"), 5);
+        Produit adidas = new Produit("Adidas", "Adidas description", new Prix(new BigDecimal(10.00)), new IdProduit("chassure_adidas"), 10);
+        Produit puma = new Produit("Puma", "Puma description", new Prix(new BigDecimal(10.00)), new IdProduit("chassure_puma"), 8);
 
         mounaProduits.add(nike);
         mounaProduits.add(adidas);

@@ -41,13 +41,13 @@ public class FakeLivraisons implements Livraisons {
             "produit 1",
             "description produit 1",
             new Prix(new BigDecimal(10.00)),
-            new IdProduit("10")
+            new IdProduit("10"), 5
         ));
         produits.add(new Produit(
             "produit 2",
             "description produit 2",
             new Prix(new BigDecimal(20.00)),
-            new IdProduit("20")
+            new IdProduit("20"), 9
         ));
         livraisons.put("Livrasion1", new Livraison(
             new IdLivraison("1012"),
@@ -61,7 +61,7 @@ public class FakeLivraisons implements Livraisons {
     }
 
     public void test1() {
-        Livraison livraison1 = findById("Livrasion1");
+        Livraison livraison1 = trouverParId("Livrasion1");
         assertEquals(livraison1.getUtilisateur().getNom(), "userA");
         assertEquals(livraison1.getUtilisateur().getPrenom(), "userA");
         assertEquals(livraison1.getUtilisateur().getEmail(), "userA@gmail.com");
@@ -69,14 +69,14 @@ public class FakeLivraisons implements Livraisons {
     }
 
     public void test2() {
-        Livraison livraison1 = findById("Livrasion1");
+        Livraison livraison1 = trouverParId("Livrasion1");
         assertEquals(livraison1.getProduits().get(0).getName(), "produit 1");
         assertEquals(livraison1.getProduits().get(0).getDescription(), "description produit 1");
         assertEquals(livraison1.getProduits().get(0).getPrice(), "10.00");
     }
 
     @Override
-    public Livraison findById(String idLivraison) {
+    public Livraison trouverParId(String idLivraison) {
         return livraisons.get(idLivraison);
     }
 

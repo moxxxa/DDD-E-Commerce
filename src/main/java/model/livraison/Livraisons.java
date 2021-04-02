@@ -5,6 +5,6 @@ import model.panier.Panier;
 
 public interface Livraisons {
 
-    Livraison findById(String idLivraison);
+    Livraison trouverParId(String idLivraison);
     void sauvegarderLivraison(Livraison livraison);
 }

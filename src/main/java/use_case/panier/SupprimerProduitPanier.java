@@ -18,8 +18,9 @@ public class SupprimerProduitPanier {
         Panier panier = paniers.trouverParId(idPanier);
         Produit produit = produits.trouverParId(idProduit);
 
+
+
         panier.supprimerProduit(produit);
-        produit.incrementStock();
 
         produits.sauvegarderProduit(produit);
         paniers.sauvegarderPanier(panier);

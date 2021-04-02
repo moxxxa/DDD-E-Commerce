@@ -16,9 +16,9 @@ public class FakeProduits implements Produits {
 
     public FakeProduits() throws PrixNonValideException {
         produits = new HashMap<>();
-        Produit chaussure_nike = new Produit("Nike", "Nike description",new Prix(new BigDecimal(10.00)), new IdProduit("chaussure_nike"));
-        Produit chassure_adidas = new Produit("Adidas", "Adidas description", new Prix(new BigDecimal(10.00)), new IdProduit("chassure_adidas"));
-        Produit chassure_puma = new Produit("Puma", "Puma description", new Prix(new BigDecimal(10.00)), new IdProduit("chassure_puma"));
+        Produit chaussure_nike = new Produit("Nike", "description nike",new Prix(new BigDecimal(10.00)), new IdProduit("chaussure_nike"), 4);
+        Produit chassure_adidas = new Produit("Adidas", "Adidas description", new Prix(new BigDecimal(10.00)), new IdProduit("chassure_adidas"), 12);
+        Produit chassure_puma = new Produit("Puma", "Puma description", new Prix(new BigDecimal(10.00)), new IdProduit("chassure_puma"),8);
 
         produits.put("chaussure_nike", chaussure_nike);
         produits.put("chassure_adidas", chassure_adidas);
@@ -32,6 +32,8 @@ public class FakeProduits implements Produits {
 
     @Override
     public void sauvegarderProduit(Produit produit) {
-        produits.put(produit.getId(), produit);
+        if(produit != null){
+            produits.put(produit.getId(), produit);
+        }
     }
 }
