@@ -20,12 +20,16 @@ public class CreneauxLivraison {
             return;
         }
         if(livraisonType.equals(LivraisonType.DEFAULT)) {
-            duree = 10;
+            this.duree = 10;
         }
         throw new DureeLivraisonNonValideException(MessagesModel.TYPE_LIVRAISON_NON_VALIDE);
     }
 
     public int getDureeEstimee() {
         return duree;
+    }
+
+    public Date getDateLivraison() {
+        return this.dateLivraison;
     }
 }

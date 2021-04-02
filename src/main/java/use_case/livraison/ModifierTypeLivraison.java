@@ -2,10 +2,6 @@ package use_case.livraison;
 
 import model.livraison.Livraison;
 import model.livraison.Livraisons;
-import model.panier.Panier;
-import model.panier.Paniers;
-import model.produit.Produit;
-import model.produit.Produits;
 
 public class ModifierTypeLivraison {
 
@@ -18,7 +14,9 @@ public class ModifierTypeLivraison {
 
     public Livraison choisirTypeLivraison(String idLivraison) {
         Livraison livraison = livraisons.trouverParId(idLivraison);
-        livraison.getDureeLivraisonEstimee();
+        livraison.getDureeLivraison();
+        livraison.getDateLivraison();
+        livraisons.sauvegarderLivraison(livraison);
         return livraison;
     }
 

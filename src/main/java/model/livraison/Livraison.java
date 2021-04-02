@@ -11,8 +11,6 @@ public class Livraison {
 
     private IdLivraison idLivraison;
     private Utilisateur utilisateur;
-
-    private Date dateLivraison;
     private Date dateCommande;
 
     private boolean isReceived;
@@ -21,11 +19,9 @@ public class Livraison {
     private List<Produit> produits;
     private CreneauxLivraison creneauxLivraison;
 
-    public Livraison(final IdLivraison idLivraison, final Utilisateur utilisateur, final List<Produit> produits,
-     final Date dateLivraison, final Date dateCommande, final boolean isReceived, final LivraisonType livraisonType) throws DureeLivraisonNonValideException {
+    public Livraison(final IdLivraison idLivraison, final Utilisateur utilisateur, final List<Produit> produits, final Date dateCommande, final boolean isReceived, final LivraisonType livraisonType) throws DureeLivraisonNonValideException {
         this.idLivraison = idLivraison;
         this.utilisateur = utilisateur;
-        this.dateLivraison = dateLivraison;
         this.dateCommande = dateCommande;
         this.isReceived = isReceived;
         this.livraisonType = livraisonType;
@@ -39,10 +35,6 @@ public class Livraison {
 
     public String getId() {
         return idLivraison.getId();
-    }
-
-    public Date getDateLivraison() {
-        return dateLivraison;
     }
 
     public Date getDateEnvoie() {
@@ -61,7 +53,11 @@ public class Livraison {
         return produits;
     }
 
-    public int getDureeLivraisonEstimee() {
+    public int getDureeLivraison() {
         return creneauxLivraison.getDureeEstimee();
+    }
+
+    public Date getDateLivraison(){
+        return creneauxLivraison.getDateLivraison();
     }
 }
