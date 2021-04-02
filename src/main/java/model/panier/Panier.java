@@ -6,7 +6,7 @@ import model.user.Utilisateur;
 
 import java.util.ArrayList;
 import java.util.List;
-
+//panier root
 public class Panier {
     private Utilisateur utilisateur;
     private List<String> produitList;

@@ -6,7 +6,6 @@ import model.messageErreur.MessagesModel;
 
 import java.math.BigDecimal;
 
-//  Agregate root
 public class Produit {
     private String name;
     private String description;
