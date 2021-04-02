@@ -1,8 +1,7 @@
 package model.livraison;
 
 import model.Exception.DureeLivraisonNonValideException;
-import model.messageErreur.LivraisonMessage;
-
+import model.messageErreur.MessagesModel;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -23,7 +22,7 @@ public class CreneauxLivraison {
         if(livraisonType.equals(LivraisonType.DEFAULT)) {
             duree = 10;
         }
-        throw new DureeLivraisonNonValideException(LivraisonMessage.TypeLivraisonNexistePas.name());
+        throw new DureeLivraisonNonValideException(MessagesModel.TYPE_LIVRAISON_NON_VALIDE);
     }
 
     public int getDureeEstimee() {

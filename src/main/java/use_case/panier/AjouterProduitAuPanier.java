@@ -1,5 +1,6 @@
 package use_case.panier;
 
+import model.Exception.StockEpuiserException;
 import model.panier.Panier;
 import model.panier.Paniers;
 import model.produit.Produit;
@@ -15,13 +16,13 @@ public class AjouterProduitAuPanier {
         this.produits = produits;
     }
 
-    public Panier ajouterProduit(String idPanier, String idProduit) {
+    public Panier ajouterProduit(String idPanier, String idProduit) throws StockEpuiserException {
         Panier panier = paniers.trouverParId(idPanier);
         Produit produit = produits.trouverParId(idProduit);
 
-
-        panier.ajouterProduit(produit);
-
+        produit.disponible();
+        produit.diminuerStockDeUn();
+        panier.ajouterProduit(idProduit);
 
         produits.sauvegarderProduit(produit);
         paniers.sauvegarderPanier(panier);

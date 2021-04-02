@@ -24,15 +24,11 @@ public class FakePaniers implements Paniers {
 
         paniers = new HashMap<>();
 
-        List<Produit> mounaProduits = new ArrayList<>();
+        List<String> mounaProduits = new ArrayList<>();
 
-        Produit nike = new Produit("Nike", "description nike", new Prix(new BigDecimal(10.00)), new IdProduit("chaussure_nike"), 5);
-        Produit adidas = new Produit("Adidas", "Adidas description", new Prix(new BigDecimal(10.00)), new IdProduit("chassure_adidas"), 10);
-        Produit puma = new Produit("Puma", "Puma description", new Prix(new BigDecimal(10.00)), new IdProduit("chassure_puma"), 8);
-
-        mounaProduits.add(nike);
-        mounaProduits.add(adidas);
-        mounaProduits.add(puma);
+        mounaProduits.add("chaussure_nike");
+        mounaProduits.add("chassure_adidas");
+        mounaProduits.add("chassure_puma");
 
         Panier panierMouna = new Panier(mounaProduits, new Utilisateur(
                 new IdUtilisateur("1"),
@@ -44,7 +40,7 @@ public class FakePaniers implements Paniers {
         ), new IdPanier("panier_non_vide"));
         paniers.put("panier_non_vide", panierMouna);
 
-        List<Produit> stanProduits = new ArrayList<>();
+        List<String> stanProduits = new ArrayList<>();
 
         paniers.put("panier_vide", new Panier(stanProduits, new Utilisateur(
                 new IdUtilisateur("2"),

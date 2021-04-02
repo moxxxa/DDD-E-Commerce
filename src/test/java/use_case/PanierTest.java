@@ -1,6 +1,7 @@
 package use_case;
 
 import model.Exception.PrixNonValideException;
+import model.Exception.StockEpuiserException;
 import model.panier.Panier;
 import model.produit.IdProduit;
 import model.produit.Produit;
@@ -26,18 +27,19 @@ public class PanierTest {
     }
 
     @Test
-    void testAjouterProduitPanier() {
+    void testAjouterProduitPanier() throws StockEpuiserException {
         // Given
         Panier panier = paniers.trouverParId("panier_vide");
+
         Produit produit = produits.trouverParId("chaussure_nike");
         int NbProduitsDansPanier = 0;
         // When
         panier = new AjouterProduitAuPanier(paniers, produits).ajouterProduit(panier.getId(), produit.getId());
         // Then
         assertEquals(panier.getProduitList().size(), NbProduitsDansPanier + 1);
-        assertEquals(panier.getProduitList().get(0).getName(), "Nike");
-        assertEquals(panier.getProduitList().get(0).getDescription(), "description nike");
-        assertEquals(panier.getProduitList().get(0).getPrice(), new BigDecimal(10.00));
+        assertEquals(produits.trouverParId(panier.getProduitList().get(0)).getName(), "Nike");
+        assertEquals(produits.trouverParId(panier.getProduitList().get(0)).getDescription(), "description nike");
+        assertEquals(produits.trouverParId(panier.getProduitList().get(0)).getPrice(), new BigDecimal(10.00));
     }
 
     @Test
@@ -58,17 +60,6 @@ public class PanierTest {
         int NbProduitsDansPanier = 0;
         //  When
         panier = new SupprimerProduitPanier(paniers, produits).supprimerProduit(panier.getId(), "chaussure_nike");
-        //  Then
-        assertEquals(panier.getProduitList().size(), NbProduitsDansPanier);
-    }
-
-    @Test
-    void testSupprimerProduitNexistePas() {
-        //  Given
-        Panier panier = paniers.trouverParId("panier_non_vide");
-        int NbProduitsDansPanier = 3;
-        //  When
-        panier = new SupprimerProduitPanier(paniers, produits).supprimerProduit(panier.getId(), "n'existe pas");
         //  Then
         assertEquals(panier.getProduitList().size(), NbProduitsDansPanier);
     }
